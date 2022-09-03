@@ -1,0 +1,16 @@
+{
+  "loginDetails": [
+    {
+      "email": "akash@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "todo": [
+    {
+      "title": "Master class",
+      "description": "Linked list",
+      "status": true,
+      "id": 1
+    }
+  ]
+}
