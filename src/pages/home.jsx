@@ -35,6 +35,7 @@ const Home = () => {
       })
       .catch((err) => console.log(err));
   };
+  const { data } = useSelector((state) => state);
   const isLoginOrNot = useSelector((state) => state.islogin);
   const listArr = useSelector((state) => state.todo);
   const handleDelete = (id) => {
