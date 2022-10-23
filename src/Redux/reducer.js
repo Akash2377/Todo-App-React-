@@ -2,6 +2,7 @@ import * as type from "./actionType";
 const initState = {
   todo: [],
   islogin: false,
+  data: [],
 };
 export const reducer = (state = initState, action) => {
   switch (action.type) {
@@ -15,6 +16,7 @@ export const reducer = (state = initState, action) => {
       return { ...state, todo: action.payload };
     case type.IS_LOGIN:
       return { ...state, islogin: action.payload };
+
     default:
       return state;
   }
