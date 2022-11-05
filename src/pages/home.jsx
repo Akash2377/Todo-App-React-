@@ -45,15 +45,19 @@ const Home = () => {
   };
 
   const handleAddTodo = () => {
-    fetch("http://localhost:8080/todo", {
-      method: "POST",
-      body: JSON.stringify({
-        title: title,
-        description: description,
-        status: false,
-      }),
-      headers: { "content-type": "application/json" },
-    }).then(() => getAndStore());
+    if (title === "" || description === "") {
+      alert("Please enter a title and description");
+    } else {
+      fetch("http://localhost:8080/todo", {
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          status: false,
+        }),
+        headers: { "content-type": "application/json" },
+      }).then(() => getAndStore());
+    }
   };
   const userStatus = localStorage.getItem("loginKey");
   React.useEffect(() => {
