@@ -15,10 +15,29 @@ const deleteTodosSuccess = (payload) => {
 const isLogin = (payload) => {
   return { type: types.IS_LOGIN, payload: payload };
 };
+const getTodoAndAdd = () => {
+  return function (dispatch) {
+    fetch("http://localhost:8080/todo")
+      .then((res) => res.json())
+      .then((res) => {
+        return dispatch(todosGetSuccess(res));
+      })
+      .catch((err) => console.log(err));
+  };
+};
+const handleDelete = (id) => {
+  return function (dispatch) {
+    fetch(`http://localhost:8080/todo/${id}`, {
+      method: "Delete",
+    }).then(() => dispatch(getTodoAndAdd()));
+  };
+};
 export {
   todosGetSuccess,
   addTodosSuccess,
   updateTodosSuccess,
   deleteTodosSuccess,
   isLogin,
+  getTodoAndAdd,
+  handleDelete,
 };
