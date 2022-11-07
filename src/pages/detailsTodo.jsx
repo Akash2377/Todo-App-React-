@@ -40,7 +40,7 @@ const DetailsTodo = () => {
         </button>
       ) : (
         <button onClick={handleChangeStatus} className="doneBtn">
-          Mark As Complete
+          Mark As Completed
         </button>
       )}
     </div>
