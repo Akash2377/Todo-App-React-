@@ -5,56 +5,5 @@
       "password": "akash"
     }
   ],
-  
-  "todo": [
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 1
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 2
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 3
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 4
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 5
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 6
-    },
-    {
-      "title": "",
-      "description": "",
-      "status": false,
-      "id": 7
-    },
-    {
-      "title": "sfads",
-      "description": "afdsa",
-      "status": true,
-      "id": 8
-    }
-    
-  ]
+  "todo": []
 }

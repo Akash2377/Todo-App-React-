@@ -2,13 +2,7 @@ import React from "react";
 import { FaFolderOpen, FaTrashAlt } from "react-icons/fa";
 import { BiCalendarCheck, BiCalendarX } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  todosGetSuccess,
-  addTodosSuccess,
-  updateTodosSuccess,
-  deleteTodosSuccess,
-  isLogin,
-} from "../Redux/action";
+import { getTodoAndAdd, handleDelete } from "../Redux/action";
 import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const [todoInput, setTotoInput] = React.useState({
@@ -25,24 +19,11 @@ const Home = () => {
     });
   };
   React.useEffect(() => {
-    getAndStore();
+    dispatch(getTodoAndAdd());
   }, []);
-  const getAndStore = () => {
-    fetch("http://localhost:8080/todo")
-      .then((res) => res.json())
-      .then((res) => {
-        return dispatch(todosGetSuccess(res));
-      })
-      .catch((err) => console.log(err));
-  };
-  const { data } = useSelector((state) => state);
+
   const isLoginOrNot = useSelector((state) => state.islogin);
   const listArr = useSelector((state) => state.todo);
-  const handleDelete = (id) => {
-    fetch(`http://localhost:8080/todo/${id}`, {
-      method: "Delete",
-    }).then(() => getAndStore());
-  };
 
   const handleAddTodo = () => {
     if (title === "" || description === "") {
@@ -56,7 +37,7 @@ const Home = () => {
           status: false,
         }),
         headers: { "content-type": "application/json" },
-      }).then(() => getAndStore());
+      }).then(() => dispatch(getTodoAndAdd()));
     }
   };
   const userStatus = localStorage.getItem("loginKey");
@@ -116,7 +97,7 @@ const Home = () => {
                   <FaTrashAlt
                     color="red"
                     cursor="pointer"
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => dispatch(handleDelete(item.id))}
                   />
                 </td>
               </tr>
